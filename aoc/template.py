@@ -12,6 +12,7 @@ class SamplePuzzle:
             return
         answer = coerce(answer)
         print(f'Output of sample #{self.num}: {answer}')
+        exit()
 
     __call__ = submit
 

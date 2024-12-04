@@ -1,12 +1,13 @@
-from bisect import bisect_left, bisect_right
+from bisect import *
 from collections import *
+from collections.abc import Iterable
 from functools import *
 from heapq import *
 from itertools import *
 from parse import parse, search
 from copy import deepcopy
-from math import prod
-
+from math import prod, gcd, lcm
+import re, os, sys
 
 D4 = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 D8 = [(1, 1), (1, 0), (1, -1), (0, -1), (0, 1), (-1, -1), (-1, 0), (-1, 1)]
@@ -55,12 +56,12 @@ def fill(dims, k=0):
     else:
         return [fill(dims[1:]) for _ in range(dims[0])]
 
-def flat(L):
+def flat(x):
     """Flattens a list recursively"""
-    if not hasattr(L, '__iter__'):
-        return [L]
+    if isinstance(x, (list, tuple)):
+        return [a for i in x for a in flat(i)]
     else:
-        return list(chain(*map(flat, L)))
+        return [x]
 
 def rot(grid, n=1):
     """Rotates a grid 90 degrees clockwise n times"""

@@ -67,7 +67,7 @@ def run_countdown(_):
             minutes, seconds = divmod(rem, 60)
             print(cf.white('%02d:%02d:%02d' % (hours, minutes, seconds)))
 
-        if current_time > start_time or 1:
+        if current_time > start_time:
             # try grabbing input 3 times before giving up
             for _ in range(3):
                 puzzle = Puzzle(year, day)

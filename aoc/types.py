@@ -120,7 +120,7 @@ class xstr(str, metaclass=FixedTypeMeta):
     def m(self, pattern, flags=0):
         """Find a single match to the specified pattern."""
         m = regex.search(pattern, self, flags)
-        return m.groups() if m is not None else None
+        return m.group() if m is not None else None
 
     def p(self, format, **kwargs):
         """An alias of parse.search()."""
